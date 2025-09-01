@@ -4,7 +4,6 @@ function solveEquation(a, b, c) {
   const d = b**2 - 4*a*c;
 
   if (d < 0) {
-    arr = [];
   } else if (d === 0) {
     arr.push(-b / (2*a));
   } else {
@@ -16,11 +15,11 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  const P = (percent / 100) / 12;
+  const interestRate = (percent / 100) / 12;
 
-  const S = amount - contribution;
+  const loan = amount - contribution;
 
-  const payment = S * (P + (P / (((1 + P) ** countMonths) - 1)));
+  const payment = loan * (interestRate + (interestRate / (((1 + interestRate) ** countMonths) - 1)));
 
   const total = payment * countMonths;
 
